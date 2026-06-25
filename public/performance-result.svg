@@ -1,0 +1,79 @@
+<svg width="980" height="980" viewBox="0 0 980 980" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="980" height="980" rx="28" fill="#FFFFFF"/>
+  <rect x="1" y="1" width="978" height="978" rx="27" stroke="#DBEAFE" stroke-width="2"/>
+  <text x="36" y="48" fill="#0F172A" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="19" font-weight="700">本轮压测期间，服务端观察到：</text>
+
+  <g font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="17" fill="#1E293B">
+    <circle cx="42" cy="89" r="3.8" fill="#111827"/>
+    <text x="58" y="95">Nginx 吞吐：约</text>
+    <rect x="183" y="72" width="118" height="30" rx="8" fill="#F1F5F9"/>
+    <text x="198" y="94" font-family="Consolas, monospace" font-size="15">11.5 - 16 RPS</text>
+
+    <circle cx="42" cy="126" r="3.8" fill="#111827"/>
+    <text x="58" y="132">Java CPU：约</text>
+    <rect x="166" y="109" width="62" height="30" rx="8" fill="#F1F5F9"/>
+    <text x="180" y="131" font-family="Consolas, monospace" font-size="15">24.6%</text>
+
+    <circle cx="42" cy="163" r="3.8" fill="#111827"/>
+    <text x="58" y="169">Java 线程数：约</text>
+    <rect x="184" y="146" width="58" height="30" rx="8" fill="#F1F5F9"/>
+    <text x="202" y="168" font-family="Consolas, monospace" font-size="15">422</text>
+
+    <circle cx="42" cy="200" r="3.8" fill="#111827"/>
+    <text x="58" y="206">Java RSS 内存：约</text>
+    <rect x="210" y="183" width="70" height="30" rx="8" fill="#F1F5F9"/>
+    <text x="226" y="205" font-family="Consolas, monospace" font-size="15">9.8GB</text>
+
+    <circle cx="42" cy="237" r="3.8" fill="#111827"/>
+    <text x="58" y="243">PG 总连接数：</text>
+    <rect x="177" y="220" width="46" height="30" rx="8" fill="#F1F5F9"/>
+    <text x="192" y="242" font-family="Consolas, monospace" font-size="15">71</text>
+
+    <circle cx="42" cy="274" r="3.8" fill="#111827"/>
+    <text x="58" y="280">应用服务看到 PG 的连接：</text>
+    <circle cx="60" cy="311" r="3.2" fill="#111827"/>
+    <text x="76" y="317">active：</text>
+    <rect x="145" y="294" width="40" height="29" rx="8" fill="#F1F5F9"/>
+    <text x="158" y="315" font-family="Consolas, monospace" font-size="15">11</text>
+    <circle cx="60" cy="348" r="3.2" fill="#111827"/>
+    <text x="76" y="354">idle：</text>
+    <rect x="122" y="331" width="36" height="29" rx="8" fill="#F1F5F9"/>
+    <text x="135" y="352" font-family="Consolas, monospace" font-size="15">8</text>
+    <circle cx="60" cy="385" r="3.2" fill="#111827"/>
+    <text x="76" y="391">idle in transaction：</text>
+    <rect x="245" y="368" width="35" height="29" rx="8" fill="#F1F5F9"/>
+    <text x="258" y="389" font-family="Consolas, monospace" font-size="15">1</text>
+    <circle cx="60" cy="422" r="3.2" fill="#111827"/>
+    <text x="76" y="428">合计约</text>
+    <rect x="138" y="405" width="42" height="29" rx="8" fill="#F1F5F9"/>
+    <text x="151" y="426" font-family="Consolas, monospace" font-size="15">20</text>
+    <text x="190" y="428">，接近 Druid</text>
+    <rect x="310" y="405" width="130" height="29" rx="8" fill="#F1F5F9"/>
+    <text x="324" y="426" font-family="Consolas, monospace" font-size="15">max-active=20</text>
+  </g>
+
+  <text x="36" y="482" fill="#0F172A" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="18" font-weight="700">PG 中 active SQL 主要阻塞在：</text>
+  <rect x="36" y="502" width="908" height="148" rx="14" fill="#F1F5F9"/>
+  <text x="54" y="535" fill="#64748B" font-family="Consolas, monospace" font-size="15">sql</text>
+  <text x="54" y="580" fill="#C026D3" font-family="Consolas, monospace" font-size="17">UPDATE</text>
+  <text x="126" y="580" fill="#111827" font-family="Consolas, monospace" font-size="17">product_sku</text>
+  <text x="54" y="610" fill="#C026D3" font-family="Consolas, monospace" font-size="17">SET</text>
+  <text x="96" y="610" fill="#111827" font-family="Consolas, monospace" font-size="17">stock = stock - 1, sales_count = sales_count + 1</text>
+  <text x="54" y="640" fill="#C026D3" font-family="Consolas, monospace" font-size="17">WHERE</text>
+  <text x="118" y="640" fill="#111827" font-family="Consolas, monospace" font-size="17">deleted = 0</text>
+  <text x="232" y="640" fill="#C026D3" font-family="Consolas, monospace" font-size="17">AND</text>
+  <text x="276" y="640" fill="#111827" font-family="Consolas, monospace" font-size="17">(id = $1</text>
+  <text x="362" y="640" fill="#C026D3" font-family="Consolas, monospace" font-size="17">AND</text>
+  <text x="405" y="640" fill="#111827" font-family="Consolas, monospace" font-size="17">stock &gt; $2)</text>
+
+  <text x="36" y="694" fill="#0F172A" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="18" font-weight="700">等待类型：</text>
+  <rect x="36" y="714" width="908" height="92" rx="14" fill="#F1F5F9"/>
+  <text x="54" y="747" fill="#64748B" font-family="Consolas, monospace" font-size="15">text</text>
+  <text x="54" y="785" fill="#111827" font-family="Consolas, monospace" font-size="17">Lock transactionid</text>
+  <text x="54" y="815" fill="#111827" font-family="Consolas, monospace" font-size="17">Lock tuple</text>
+
+  <text x="36" y="858" fill="#0F172A" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="18" font-weight="700">对比结论：</text>
+  <text x="36" y="892" fill="#1E293B" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="17">本轮比上一轮表现更好：并发 15，成功率从 68% 提升到 98%。</text>
+  <text x="36" y="926" fill="#1E293B" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="17">但也暴露出真实瓶颈：单 SKU 库存行锁导致数据库连接被长时间占用。</text>
+  <text x="36" y="960" fill="#1E293B" font-family="Microsoft YaHei, Noto Sans SC, Arial, sans-serif" font-size="17">最终表现为订单创建慢、请求超时和失败，需要继续优化库存扣减链路。</text>
+</svg>
