@@ -1,128 +1,52 @@
-export type NavItem = {
-  label: string;
-  href: string;
-};
-
-export type SkillItem = {
-  title: string;
-  icon: string;
-  description: string;
-};
-
-export type ProjectItem = {
-  title: string;
-  description: string;
-  tags: string[];
-};
-
-export type TestCase = {
-  id: string;
-  module: string;
-  point: string;
-  priority: 'P0' | 'P1' | 'P2';
-};
-
-export type BugCase = {
-  title: string;
-  symptom: string;
-  diagnosis: string;
-};
-
-export type AutomationBlock = {
-  title: string;
-  summary: string;
-  metric: string;
-  points: string[];
-};
-
-export type PracticeItem = {
-  title: string;
-  description: string;
-  tags: string[];
-};
+export type NavItem = { label: string; href: string };
+export type SkillItem = { title: string; icon: string; description: string; keywords: string[] };
+export type ProjectItem = { title: string; category: string; description: string; highlights: string[]; tags: string[]; index: string };
+export type TestCase = { id: string; module: string; point: string; priority: 'P0' | 'P1' | 'P2'; method: string };
+export type BugCase = { title: string; symptom: string; diagnosis: string; value: string };
 
 export const navItems: NavItem[] = [
   { label: '核心能力', href: '#skills' },
   { label: '项目案例', href: '#projects' },
-  { label: '测试用例', href: '#cases' },
-  { label: 'Bug 案例', href: '#bugs' },
-  { label: '自动化与性能', href: '#automation' },
-  { label: 'AI 提效', href: '#ai-practice' },
+  { label: '深度案例', href: '#commerce-case' },
+  { label: '作品证据', href: '#proof' },
+  { label: 'AI 实效', href: '#ai-impact' },
   { label: '关于我', href: '#about' },
 ];
 
 export const skills: SkillItem[] = [
-  { title: '业务测试', icon: 'BUS', description: '覆盖电商商品、购物车、订单、支付、退款、积分、优惠券、后台配置等核心链路。' },
-  { title: '接口测试', icon: 'API', description: '围绕参数校验、鉴权、幂等、异常返回、上下游联调设计接口测试方案。' },
-  { title: '自动化测试', icon: 'AUTO', description: '熟悉 Python + Pytest + Requests，支持数据驱动、数据库断言与 Allure 报告。' },
-  { title: '性能压测', icon: 'P95', description: '设计登录、商品详情、下单、查询类接口场景，关注 TPS、响应时间、P95、错误率。' },
-  { title: 'SQL 数据校验', icon: 'SQL', description: '校验订单金额、支付流水、退款记录、优惠分摊和状态流转一致性。' },
-  { title: '问题定位', icon: 'LOG', description: '结合抓包、日志、数据库和接口链路，定位缺陷根因并推动闭环。' },
-  { title: 'AI 建站', icon: 'AI', description: '借助 AI 完成作品集页面结构设计、文案整理、组件拆分与快速上线。' },
-  { title: 'AI 代码分析', icon: '<>', description: '使用 AI 辅助分析接口逻辑、字段来源、影响范围和潜在测试风险。' },
+  { title: '业务测试', icon: 'BUS', description: '覆盖商品、购物车、订单、支付、退款、积分、优惠券及后台配置等关键业务。', keywords: ['交易闭环', '异常场景'] },
+  { title: '接口测试', icon: 'API', description: '围绕参数、鉴权、幂等、异常返回和上下游联调设计接口测试方案。', keywords: ['Postman', '抓包联调'] },
+  { title: '自动化测试', icon: 'AUT', description: '使用 Python + Pytest + Requests 搭建数据驱动的接口回归能力。', keywords: ['数据驱动', '持续回归'] },
+  { title: '性能压测', icon: 'P95', description: '针对核心链路设计压力场景，关注 TPS、P95、错误率和系统稳定性。', keywords: ['Locust', 'JMeter'] },
+  { title: 'SQL 数据校验', icon: 'SQL', description: '校验订单、支付、退款、优惠分摊与状态流转，保证账实一致。', keywords: ['金额核对', '数据一致性'] },
+  { title: '问题定位', icon: 'LOG', description: '结合抓包、日志、数据库和调用链快速缩小范围，推动缺陷闭环。', keywords: ['根因分析', '缺陷闭环'] },
+  { title: 'AI 建站', icon: 'WEB', description: '借助 AI 完成需求梳理、页面设计、组件开发与静态部署。', keywords: ['快速原型', '工程落地'] },
+  { title: 'AI 代码分析', icon: 'AI', description: '辅助分析接口逻辑、字段来源、影响范围与潜在测试风险。', keywords: ['代码理解', '风险识别'] },
 ];
 
 export const projects: ProjectItem[] = [
-  {
-    title: '电商平台测试',
-    description: '覆盖商品、购物车、订单、支付、退款、积分、优惠券、分账等核心链路。',
-    tags: ['交易链路', '金额校验', '接口联调'],
-  },
-  {
-    title: '后台管理系统测试',
-    description: '商品管理、用户管理、订单管理、财务流水、权限与配置项验证。',
-    tags: ['后台系统', '权限', '数据一致性'],
-  },
-  {
-    title: 'AI 营养师项目测试',
-    description: '覆盖知识库、报告解析、对话问答、商品推荐与回归测试。',
-    tags: ['AI 应用', '回归测试', '缺陷跟踪'],
-  },
-  {
-    title: '测试平台 / 小工具实践',
-    description: '借助 AI 快速搭建测试能力展示网站、记账工具等轻量项目。',
-    tags: ['AI 建站', '快速上线', '实践能力'],
-  },
+  { index: '01', category: 'E-COMMERCE', title: '电商平台测试', description: '负责从商品到履约售后的完整交易质量保障，重点覆盖复杂优惠、支付状态与退款回退。', highlights: ['梳理商品—购物车—订单—支付—退款主链路', '校验优惠券、积分与分账金额的一致性'], tags: ['交易链路', '金额校验', '接口联调'] },
+  { index: '02', category: 'ADMIN SYSTEM', title: '后台管理系统测试', description: '验证运营后台核心配置与数据流转，兼顾角色权限、边界条件和前后台数据一致性。', highlights: ['覆盖商品、用户、订单和财务流水模块', '验证角色权限、配置生效与操作审计'], tags: ['后台系统', '权限', '数据一致性'] },
+  { index: '03', category: 'AI APPLICATION', title: 'AI 营养师项目测试', description: '围绕知识库、报告解析和对话问答建立可重复验证的 AI 应用质量标准。', highlights: ['验证召回准确性、解析一致性、幻觉与多轮上下文', '沉淀固定问题集、期望要点与回答质量回归集'], tags: ['AI 应用测试', '回答质量', '回归集'] },
+  { index: '04', category: 'AI DELIVERY', title: 'AI 测试工具 / 作品集实践', description: '使用 AI 完成需求拆解、组件开发、测试数据设计、页面验收与迭代优化。', highlights: ['从结构化需求生成 Vue 组件与响应式页面', '完成构建、桌面端、移动端和交互实际验收'], tags: ['AI 建站', '人机协作', '工程验证'] },
 ];
 
 export const testCases: TestCase[] = [
-  { id: 'TC-ORDER-001', module: '订单', point: '优惠券金额分摊', priority: 'P0' },
-  { id: 'TC-PAY-002', module: '支付', point: '重复支付幂等', priority: 'P0' },
-  { id: 'TC-CART-003', module: '购物车', point: '数量边界校验', priority: 'P1' },
-  { id: 'TC-POINT-004', module: '积分', point: '抵扣与退款回退', priority: 'P0' },
+  { id: 'TC-ORDER-001', module: '订单', point: '优惠券金额分摊', priority: 'P0', method: '接口 + SQL' },
+  { id: 'TC-PAY-002', module: '支付', point: '重复支付幂等', priority: 'P0', method: '并发请求' },
+  { id: 'TC-CART-003', module: '购物车', point: '数量边界校验', priority: 'P1', method: '边界值' },
+  { id: 'TC-POINT-004', module: '积分', point: '抵扣与退款回退', priority: 'P0', method: '链路验证' },
 ];
 
 export const bugCases: BugCase[] = [
-  { title: '积分抵扣拆单退款少退', symptom: '按件退款后积分少退', diagnosis: '金额整除截断导致退款积分不完整' },
-  { title: '支付成功订单状态未更新', symptom: '支付回调成功但订单未流转', diagnosis: '回调幂等处理异常' },
-  { title: '趋势图日期未补零', symptom: '无交易日断档', diagnosis: '日期维度未补 0，连续展示缺失' },
-];
-
-export const automationBlocks: AutomationBlock[] = [
-  {
-    title: '接口自动化',
-    summary: '围绕订单、支付、退款、优惠券和积分等核心接口建立自动化回归，降低重复验证成本。',
-    metric: 'Python + Pytest',
-    points: ['Requests 接口调用', 'YAML / JSON 数据驱动', '数据库断言', 'Allure 报告', 'Jenkins 集成'],
-  },
-  {
-    title: '性能压测',
-    summary: '对登录、商品详情、下单、查询类接口设计压测场景，关注吞吐、时延和稳定性。',
-    metric: 'Locust / JMeter',
-    points: ['业务链路场景设计', 'TPS 与响应时间监控', 'P95 与错误率分析', '瓶颈定位与报告输出'],
-  },
-];
-
-export const practiceItems: PracticeItem[] = [
-  { title: 'AI 建网站', description: '从需求到页面原型、前端结构设计与快速上线。', tags: ['需求拆解', '页面原型', '快速上线'] },
-  { title: 'AI 分析代码', description: '辅助分析接口逻辑、字段来源、影响范围与潜在风险。', tags: ['接口逻辑', '影响范围', '风险识别'] },
-  { title: 'AI 造数据', description: '根据业务规则生成测试数据方案与 SQL 造数脚本。', tags: ['业务规则', 'SQL 造数', '边界覆盖'] },
-  { title: 'AI 辅助压测', description: '生成压测脚本、设计场景、分析结果并输出总结。', tags: ['脚本生成', '场景设计', '结果总结'] },
+  { title: '积分抵扣拆单退款少退', symptom: '按件退款后，用户积分回退数量不足。', diagnosis: '金额整除截断导致分摊精度丢失，退款积分不完整。', value: '避免用户资产损失' },
+  { title: '支付成功订单状态未更新', symptom: '支付回调成功，但订单仍停留在待支付。', diagnosis: '回调幂等键处理异常，重复消息被错误拦截。', value: '保障交易状态一致' },
+  { title: '趋势图日期未补零', symptom: '无交易日期直接断档，趋势判断失真。', diagnosis: '聚合结果未按日期维度补 0，前端数据不连续。', value: '提升报表可信度' },
 ];
 
 export const qualityHighlights = [
-  '8 年+ 测试经验，覆盖 Web / App / 小程序 / 后台系统。',
-  '擅长电商交易链路、营销活动、支付结算、退款回退、数据校验与质量保障。',
-  '具备接口自动化、性能压测、SQL 校验、抓包分析和问题定位经验。',
-  '持续实践 AI 辅助建站、代码分析、测试数据设计和压测脚本生成。',
+  { value: '10+', label: '年测试经验', detail: '覆盖 Web / App / 小程序 / 后台系统' },
+  { value: '全链路', label: '电商业务测试', detail: '交易、营销、支付、退款与结算' },
+  { value: '数据化', label: '质量验证思维', detail: '接口、日志、SQL 与性能指标交叉验证' },
+  { value: 'AI+', label: '测试提效实践', detail: '建站、代码分析、造数与压测辅助' },
 ];
