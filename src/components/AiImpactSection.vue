@@ -50,6 +50,13 @@ const siteEvidence = [
   { value: '2 端', label: '响应式实际验收', detail: '桌面端与 390px 移动端逐项检查' },
   { value: '0', label: '浏览器控制台错误', detail: '构建、交互与横向溢出均经过实际验证' },
 ];
+
+const dwkshopFacts = [
+  { value: '2 个', label: 'Vue 3 前端', detail: '移动用户端 + 运营管理后台' },
+  { value: '7 个', label: '业务微服务', detail: '鉴权、商品、购物车、订单、售后等' },
+  { value: '4 类', label: '基础中间件', detail: 'MySQL、Redis、RabbitMQ、Elasticsearch' },
+  { value: '1 条', label: '交易闭环', detail: '商品浏览 → 下单支付 → 售后退款' },
+];
 </script>
 
 <template>
@@ -93,6 +100,44 @@ const siteEvidence = [
           </div>
         </div>
       </div>
+
+      <article class="mt-6 overflow-hidden rounded-3xl border border-cyan-400/20 bg-slate-900/80">
+        <div class="grid lg:grid-cols-[.72fr_1.28fr]">
+          <div class="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-500 p-7 sm:p-9">
+            <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full border-[32px] border-white/10"></div>
+            <div class="relative">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="rounded-full bg-white/15 px-3 py-1 text-xs font-black">REAL PROJECT / 02</span>
+                <span class="rounded-full bg-emerald-300/20 px-3 py-1 text-xs font-bold text-emerald-100">公开源码 · 可验证</span>
+              </div>
+              <h3 class="mt-6 text-2xl font-black leading-tight sm:text-3xl">DWK Shop：从电商构想到可运行微服务工程</h3>
+              <p class="mt-5 text-sm leading-7 text-blue-50">把电商业务经验作为输入，通过 AI 协作完成需求拆解、架构设计、代码生成、问题修复与文档沉淀，最终形成前后台与微服务后端齐全的电商 MVP。</p>
+              <div class="mt-6 flex flex-wrap gap-2 text-[11px] font-bold text-blue-50">
+                <span class="rounded-full border border-white/20 px-3 py-1.5">Vue 3 + TypeScript</span>
+                <span class="rounded-full border border-white/20 px-3 py-1.5">Java 21 + Spring Boot</span>
+                <span class="rounded-full border border-white/20 px-3 py-1.5">Docker Compose</span>
+              </div>
+              <a href="https://github.com/dwkgmail/dwkshop" target="_blank" rel="noreferrer" class="mt-8 inline-flex min-h-11 items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-black text-blue-700 shadow-lg shadow-blue-950/20 transition hover:-translate-y-0.5 hover:bg-blue-50">查看 DWK Shop 源码 <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <div>
+            <div class="grid gap-px bg-slate-800 sm:grid-cols-2 xl:grid-cols-4">
+              <div class="bg-slate-950/70 p-5 sm:p-6"><span class="text-xs font-black text-cyan-400">01 / INPUT</span><h4 class="mt-3 text-sm font-black">业务输入</h4><p class="mt-2 text-xs leading-6 text-slate-400">商品、购物车、订单、支付、优惠与售后规则。</p></div>
+              <div class="bg-slate-950/70 p-5 sm:p-6"><span class="text-xs font-black text-cyan-400">02 / AI</span><h4 class="mt-3 text-sm font-black">协作过程</h4><p class="mt-2 text-xs leading-6 text-slate-400">拆服务、生成代码、补接口、修问题并同步文档。</p></div>
+              <div class="bg-slate-950/70 p-5 sm:p-6"><span class="text-xs font-black text-cyan-400">03 / HUMAN</span><h4 class="mt-3 text-sm font-black">人工把关</h4><p class="mt-2 text-xs leading-6 text-slate-400">从金额、状态、幂等、权限和异常链路复核实现。</p></div>
+              <div class="bg-slate-950/70 p-5 sm:p-6"><span class="text-xs font-black text-emerald-400">04 / RESULT</span><h4 class="mt-3 text-sm font-black">实际产出</h4><p class="mt-2 text-xs leading-6 text-slate-400">可运行、可构建、可继续测试的公开电商工程。</p></div>
+            </div>
+            <div class="grid grid-cols-2 gap-px border-t border-slate-800 bg-slate-800 sm:grid-cols-4">
+              <div v-for="item in dwkshopFacts" :key="item.label" class="bg-slate-900 p-5 sm:p-6">
+                <strong class="text-xl font-black text-cyan-300 sm:text-2xl">{{ item.value }}</strong>
+                <span class="mt-1 block text-xs font-bold text-white">{{ item.label }}</span>
+                <p class="mt-2 text-[11px] leading-5 text-slate-500">{{ item.detail }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <div class="mt-16">
         <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">

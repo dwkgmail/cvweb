@@ -12,7 +12,7 @@
           <span class="mt-2 block bg-gradient-to-r from-blue-700 via-blue-500 to-cyan-500 bg-clip-text text-transparent">+ AI 提效实践者</span>
         </h1>
         <p class="mt-7 max-w-2xl text-lg font-bold leading-8 text-slate-800">用测试经验做判断，用 AI 放大交付能力</p>
-        <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base sm:leading-8">10 年+ 测试经验，覆盖 Web / App / 小程序 / 后台系统；把 AI 实际用于需求分析、代码理解、测试造数、脚本生成和报告总结。</p>
+        <p class="mt-3 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base sm:leading-8">10 年+ 测试经验，覆盖 Web / App / 小程序 / 后台系统；把 AI 实际用于需求分析、代码理解、测试造数、脚本生成，并完成可公开验证的电商工程实践。</p>
 
         <div class="mt-9 grid grid-cols-2 gap-3 sm:flex sm:flex-row">
           <a href="#ai-impact" class="btn-primary">AI 实际效果 <span class="ml-2">→</span></a>

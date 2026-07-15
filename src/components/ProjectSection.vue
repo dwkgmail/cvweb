@@ -9,6 +9,9 @@
         <div class="relative p-6 sm:p-8"><p class="text-[11px] font-black tracking-[.2em] text-blue-600">{{ project.category }}</p><h3 class="mt-3 text-2xl font-black text-slate-950">{{ project.title }}</h3><p class="mt-4 max-w-xl text-sm leading-7 text-slate-600">{{ project.description }}</p>
           <ul class="mt-6 space-y-3"><li v-for="item in project.highlights" :key="item" class="flex gap-3 text-sm text-slate-700"><span class="mt-1 text-blue-600">✓</span><span>{{ item }}</span></li></ul>
           <div class="mt-7 flex flex-wrap gap-2"><span v-for="tag in project.tags" :key="tag" class="tag">{{ tag }}</span></div>
+          <a v-if="project.url" :href="project.url" target="_blank" rel="noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm font-black text-blue-700 transition hover:text-blue-500">
+            {{ project.linkLabel }} <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </article>
     </div>
